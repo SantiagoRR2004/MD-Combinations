@@ -60,14 +60,19 @@ for i in range(numPreguntas+1):
     posibilidadesPreguntasNoEstudiadas = combinaciones_con_repeticion(temasTotales-temasEstudiados, numPreguntas-i)
     conbinatoriaConR.append(posibilidadesPreguntasEstudiadas*posibilidadesPreguntasNoEstudiadas)
 
-if numPreguntas <= temasTotales:
-    for j, i in enumerate(conbinatoriaSinR):
-        print(f"Las posibilidades de acertar {j} sin repetición son {i}")
-else:
+
+
+if numPreguntas > temasTotales:
     print("No se puede calcular los porcentajes sin repetir temas porque hay más preguntas que temas.")
+else:
+    print("\nA continuación mostramos las probabilidades sin repetir temas en distintas preguntas del examen\n")
+    for j, i in enumerate(conbinatoriaSinR):
+        print(f"La probabilidad de acertar {j} preguntas es de {i/totalSinR*100:.2f}%")
 
 
+
+print("\nA continuación mostramos las probabilidades repitiendo temas en distintas preguntas del examen\n")
 for j, i in enumerate(conbinatoriaConR):
-        print(f"Las posibilidades de acertar {j} con repetición son {i}")
+        print(f"La probabilidad de acertar {j} preguntas es de {i/totalConR*100:.2f}%")
 
 
