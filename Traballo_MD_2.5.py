@@ -3,6 +3,8 @@
 
 ####################################### Functions #######################################
 def factorial_iterativa(n):
+    if n <= 0:
+        return 1 
     toret = n
     for i in range (n-1,1,-1):
         toret *= i
@@ -14,8 +16,9 @@ def factorial(n):
     return n * factorial(n - 1)
 
 def combinaciones_sin_repeticiones(n, r):
-    combinacion = factorial(n) / (factorial(n-r)*factorial(r))
-    return int(combinacion)
+    if n > 900 or r > 900:
+        return int(factorial_iterativa(n) / (factorial_iterativa(n-r)*factorial_iterativa(r)))
+    return int(factorial(n) / (factorial(n-r)*factorial(r)))
 
 def combinaciones_con_repeticion(n, r):
     return combinaciones_sin_repeticiones(n+r-1, r)
@@ -59,8 +62,6 @@ for i in range(numPreguntas+1):
     posibilidadesPreguntasEstudiadas = combinaciones_con_repeticion(temasEstudiados, i)
     posibilidadesPreguntasNoEstudiadas = combinaciones_con_repeticion(temasTotales-temasEstudiados, numPreguntas-i)
     conbinatoriaConR.append(posibilidadesPreguntasEstudiadas*posibilidadesPreguntasNoEstudiadas)
-
-
 
 if numPreguntas > temasTotales:
     print("No se puede calcular los porcentajes sin repetir temas porque hay más preguntas que temas.")
