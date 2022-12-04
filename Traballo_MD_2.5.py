@@ -68,11 +68,15 @@ else:
     print("\nA continuación mostramos las probabilidades sin repetir temas en distintas preguntas del examen\n")
     for j, i in enumerate(conbinatoriaSinR):
         print(f"La probabilidad de acertar {j} preguntas es de {i/totalSinR*100:.2f}%")
-
-
+    print("")
+    for i in range(len(conbinatoriaSinR)-1):
+        print(f"La probabilidad de acertar más de {i} preguntas es de {sum(conbinatoriaSinR[i+1:])/totalSinR*100:.2f}%")
 
 print("\nA continuación mostramos las probabilidades repitiendo temas en distintas preguntas del examen\n")
 for j, i in enumerate(conbinatoriaConR):
-        print(f"La probabilidad de acertar {j} preguntas es de {i/totalConR*100:.2f}%")
+    print(f"La probabilidad de acertar {j} preguntas es de {i/totalConR*100:.2f}%")
+print("")
+for i in range(len(conbinatoriaConR)-1):
+    print(f"La probabilidad de acertar más de {i} preguntas es de {sum(conbinatoriaConR[i+1:])/totalConR*100:.2f}%")
 
 
