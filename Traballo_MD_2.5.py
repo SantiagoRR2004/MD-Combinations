@@ -79,5 +79,6 @@ for j, i in enumerate(conbinatoriaConR):
 print("")
 for i in range(len(conbinatoriaConR)-1):
     print(f"La probabilidad de acertar más de {i} preguntas es de {sum(conbinatoriaConR[i+1:])/totalConR*100:.2f}%")
+    
 
 
