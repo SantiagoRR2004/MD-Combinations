@@ -80,7 +80,7 @@ print("")
 for i in range(len(conbinatoriaConR)-1):
     print(f"La probabilidad de acertar más de {i} preguntas es de {sum(conbinatoriaConR[i+1:])/totalConR*100:.2f}%")
     
-plt.figure(figsize=(800,9))
+plt.figure(figsize=(17,9))
 plt.title(f"{temasTotales} temas, {numPreguntas} preguntas, {temasEstudiados} estudiados", fontsize=22)
 plt.grid(zorder=-10)
 plt.yticks([x for x in range(0,101,5)])
@@ -109,16 +109,8 @@ plt.plot([x for x in range(numPreguntas+1)], [x/totalConR*100 for x in conbinato
 plt.scatter([x for x in range(numPreguntas)], [sum(conbinatoriaConR[x+1:])/totalConR*100 for x in range(len(conbinatoriaConR)-1)], s=50, c="#00FCFF", zorder=10, marker="o")
 plt.plot([x for x in range(numPreguntas)], [sum(conbinatoriaConR[x+1:])/totalConR*100 for x in range(len(conbinatoriaConR)-1)], linewidth=5, c="#00FCFF", zorder=0, label="Con repetición\nacertar\nmás de x\npreguntas")
 
-
-
-
-
-
-
-
-
 plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), shadow=True, fancybox=True)
 plt.xlabel("Preguntas")
 plt.ylabel("Porcentajes")
-##plt.savefig(CPUname+".svg")
+plt.savefig(f"Grafica{temasTotales}{numPreguntas}{temasEstudiados}.svg")
 plt.show()
