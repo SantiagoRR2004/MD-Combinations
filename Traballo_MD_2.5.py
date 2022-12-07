@@ -80,11 +80,11 @@ print("")
 for i in range(len(conbinatoriaConR)-1):
     print(f"La probabilidad de acertar más de {i} preguntas es de {sum(conbinatoriaConR[i+1:])/totalConR*100:.2f}%")
     
-plt.figure(figsize=(13,9))
+plt.figure(figsize=(800,9))
 plt.title(f"{temasTotales} temas, {numPreguntas} preguntas, {temasEstudiados} estudiados", fontsize=22)
-plt.grid()
+plt.grid(zorder=-10)
 plt.yticks([x for x in range(0,101,5)])
-plt.ylim([0,100])
+plt.ylim([0,101])
 plt.xticks([x for x in range(numPreguntas+1)])
 
 # Los prints comentados están para comprobar que funcione
@@ -92,22 +92,22 @@ if numPreguntas <= temasTotales:
 ##    print([x for x in range(numPreguntas+1)])
 ##    print([x/totalSinR*100 for x in conbinatoriaSinR])
     plt.scatter([x for x in range(numPreguntas+1)], [x/totalSinR*100 for x in conbinatoriaSinR], s=50, c="r", zorder=10, marker="o")
-    plt.plot([x for x in range(numPreguntas+1)], [x/totalSinR*100 for x in conbinatoriaSinR], linewidth=5, c="r", zorder=0, label="Sin repetición acertar x preguntas")
+    plt.plot([x for x in range(numPreguntas+1)], [x/totalSinR*100 for x in conbinatoriaSinR], linewidth=5, c="r", zorder=0, label="Sin repetición\nacertar\nx preguntas")
 
 ##    print([x for x in range(numPreguntas)])
 ##    print([sum(conbinatoriaSinR[x+1:])/totalSinR*100 for x in range(len(conbinatoriaSinR)-1)])
     plt.scatter([x for x in range(numPreguntas)], [sum(conbinatoriaSinR[x+1:])/totalSinR*100 for x in range(len(conbinatoriaSinR)-1)], s=50, c="#FF00FF", zorder=10, marker="o")
-    plt.plot([x for x in range(numPreguntas)], [sum(conbinatoriaSinR[x+1:])/totalSinR*100 for x in range(len(conbinatoriaSinR)-1)], linewidth=5, c="#FF00FF", zorder=0, label="Sin repetición acertar más de x preguntas")
+    plt.plot([x for x in range(numPreguntas)], [sum(conbinatoriaSinR[x+1:])/totalSinR*100 for x in range(len(conbinatoriaSinR)-1)], linewidth=5, c="#FF00FF", zorder=0, label="Sin repetición\nacertar\nmás de x\npreguntas")
 
 ##print([x for x in range(numPreguntas+1)])
 ##print([x/totalConR*100 for x in conbinatoriaConR])
-plt.scatter([x for x in range(numPreguntas+1)], [x/totalConR*100 for x in conbinatoriaConR], s=50, c="b", zorder=4, marker="o")
-plt.plot([x for x in range(numPreguntas+1)], [x/totalConR*100 for x in conbinatoriaConR], linewidth=5, c="b", zorder=3, label="Average")
+plt.scatter([x for x in range(numPreguntas+1)], [x/totalConR*100 for x in conbinatoriaConR], s=50, c="b", zorder=10, marker="o")
+plt.plot([x for x in range(numPreguntas+1)], [x/totalConR*100 for x in conbinatoriaConR], linewidth=5, c="b", zorder=0, label="Con repetición\nacertar\nx preguntas")
 
 ##print([x for x in range(numPreguntas)])
 ##print([sum(conbinatoriaConR[x+1:])/totalConR*100 for x in range(len(conbinatoriaConR)-1)])
-plt.scatter([x for x in range(numPreguntas)], [sum(conbinatoriaConR[x+1:])/totalConR*100 for x in range(len(conbinatoriaConR)-1)], s=50, c="r", zorder=4, marker="o")
-plt.plot([x for x in range(numPreguntas)], [sum(conbinatoriaConR[x+1:])/totalConR*100 for x in range(len(conbinatoriaConR)-1)], linewidth=5, c="r", zorder=3, label="Average")
+plt.scatter([x for x in range(numPreguntas)], [sum(conbinatoriaConR[x+1:])/totalConR*100 for x in range(len(conbinatoriaConR)-1)], s=50, c="#00FCFF", zorder=10, marker="o")
+plt.plot([x for x in range(numPreguntas)], [sum(conbinatoriaConR[x+1:])/totalConR*100 for x in range(len(conbinatoriaConR)-1)], linewidth=5, c="#00FCFF", zorder=0, label="Con repetición\nacertar\nmás de x\npreguntas")
 
 
 
