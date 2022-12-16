@@ -16,11 +16,15 @@ def factorial(n):
     return n * factorial(n - 1)
 
 def combinaciones_sin_repeticiones(n, r):
+    if r > n:
+        return 0
     if n > 900 or r > 900:
         return int(factorial_iterativa(n) / (factorial_iterativa(n-r)*factorial_iterativa(r)))
     return int(factorial(n) / (factorial(n-r)*factorial(r)))
 
 def combinaciones_con_repeticion(n, r):
+    if n == 0 and r == 0:
+        return 1
     return combinaciones_sin_repeticiones(n+r-1, r)
 
 
@@ -73,9 +77,8 @@ if numPreguntas > temasTotales:
 else:
     combinatoriaSinR, combinatoriaConR = algoritmo(temasTotales,numPreguntas,temasEstudiados)
     totalSinR = sum(combinatoriaSinR)
-
+    
 totalConR = sum(combinatoriaConR)
-
 
 if numPreguntas > temasTotales:
     print("No se puede calcular los porcentajes sin repetir temas porque hay más preguntas que temas.")
