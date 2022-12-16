@@ -68,7 +68,7 @@ while not temasEstudiados.isnumeric() or int(temasEstudiados) <= 0:
     temasEstudiados = input("¿Cuántas temas ha estudiado? ").split()[0]
 temasEstudiados = int(temasEstudiados)
 
-if numPreguntas >= temasTotales:
+if numPreguntas > temasTotales:
     combinatoriaConR = algoritmo(temasTotales,numPreguntas,temasEstudiados)
 else:
     combinatoriaSinR, combinatoriaConR = algoritmo(temasTotales,numPreguntas,temasEstudiados)
