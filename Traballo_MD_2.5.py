@@ -129,5 +129,5 @@ plt.plot([x for x in range(numPreguntas)], [sum(combinatoriaConR[x+1:])/totalCon
 plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), shadow=True, fancybox=True)
 plt.xlabel("Preguntas")
 plt.ylabel("Porcentajes")
-plt.savefig(f"Grafica{temasTotales}{numPreguntas}{temasEstudiados}.svg")
+plt.savefig(f"Grafica{temasTotales}_{numPreguntas}_{temasEstudiados}.svg")
 plt.show()
